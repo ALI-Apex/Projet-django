@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Django 
+db.sqlite3
+*.sqlite3
+*.log
+local_settings.py
+/media
+/staticfiles
+/static
+
+# Conda & Virtual environments
+env/
+venv/
+env_django/
+.env
+*.env
+.conda/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

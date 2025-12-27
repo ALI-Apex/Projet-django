@@ -27,6 +27,7 @@ env_django/
 *.env
 .conda/
 .venv/
+environment.yml
 
 # IDE
 .vscode/

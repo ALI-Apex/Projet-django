@@ -1,42 +1,40 @@
 # Django Web App - Merchex
 
-Application Django pour [description de votre projet].
+Application Django pour [description].
 
 ## Installation
 
-### Avec Conda
-```bash
-conda env create -f environment.yml
-conda activate env_django
-```
+### Prérequis
+- Python 3.11+
+- Conda (Anaconda ou Miniconda)
 
-### Avec pip
+### Setup avec Conda
 ```bash
-python -m venv env
-source env/bin/activate  # Linux/Mac
-# ou
-env\Scripts\activate  # Windows
+# Créer l'environnement virtuel
+conda create -n env_django python=3.11 -y
+
+# Activer l'environnement
+conda activate env_django
+
+# Installer les dépendances
 pip install -r requirements.txt
 ```
 
-## Lancement
+## Configuration de la base de données
 ```bash
 cd merchex
 python manage.py migrate
+```
+
+## Lancement du serveur
+```bash
 python manage.py runserver
 ```
 
-## Structure du projet
-```
-merchex/
-├── manage.py           # Script de gestion Django
-└── merchex/            # Configuration principale
-    ├── settings.py     # Configuration
-    ├── urls.py         # Routes URL
-    └── wsgi.py         # Déploiement
-```
+Ouvrez votre navigateur sur : http://127.0.0.1:8000/
 
 ## Technologies
 
-- Python 3.x
-- Django
+- Python 3.11
+- Django 5.2+
+- SQLite (dev)

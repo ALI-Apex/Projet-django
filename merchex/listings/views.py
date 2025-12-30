@@ -1,9 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from listings.models import Band, Listing
+from listings.forms import ContactUsForm
+from django.core.mail import send_mail
+from django.shortcuts import redirect
 
 def band_list(request):
-    bands = Band.objects.all()
+    bands = Band.objects.all() 
     return render(request, 'listings/band_list.html', 
                   {'bands' : bands})
 
@@ -28,4 +31,29 @@ def listings_detail(request, id):
 
 
 def contact(request):
-    return render(request,'listings/contact.html')
+    
+    if request.method == 'POST':
+        #crées une instance de notre formulaire et le remplir avec des données POST
+        form = ContactUsForm(request.POST)
+        
+        if form.is_valid():
+            send_mail(
+                subject=f'Message from {form.cleaned_data["name"] or "anonyme"} via Merchex Contact Us Form',
+                message= form.cleaned_data["message"],
+                from_email= form.cleaned_data["email"],
+                recipient_list= ["admin@merchex.xyz"]
+            )
+            return redirect('email-sent') 
+            
+            
+    else :
+        # ceci doit etre une requete get donc crée un formulaire vide 
+        form = ContactUsForm() #ajout d'un nouveau formulaire
+    
+    return render(request,
+                  'listings/contact.html',
+                  {'form': form}) # passe ce formulaire au gabarit
+    
+    
+    
+   

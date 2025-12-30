@@ -1,14 +1,12 @@
 {% extends 'listings/base.html' %}
 
 {% block content %}
-    <h1>Contact Us</h1>
-    <p>Renseignez le formulaire ci dessous</p>
-    <form>
-        <label for='name'>Nom :</label>
-        <input type='text' id='name' >
-
-        <label for='email'>Email :</label>
-        <input type='email' id='email' >
+    <h2>Contactez Nous !</h2>
+    <p>"Nous sommes là pour vous aider."</p>
+    <form action="" method="post"  novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type='submit' value='Envoyez' >
     </form>
 {% endblock  %}
     

@@ -1,0 +1,16 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: check-yaml          # Vérifie la syntaxe des fichiers YAML
+    -   id: end-of-file-fixer   # S'assure que les fichiers finissent par une ligne vide
+    -   id: trailing-whitespace # Supprime les espaces inutiles en fin de ligne
+    -   id: debug-statements
+    -   id: check-added-large-files # Empech d'envoyer un enorme fichier par erreur
+    #-   id: djlint # format les gabarits HTML
+
+-   repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.14.10
+    hooks:
+    -   id: ruff                # Linter ultra-rapide (remplace Flake8)
+    -   id: ruff-format         # Formateur (remplace Black)

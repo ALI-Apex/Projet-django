@@ -3,10 +3,9 @@
 {% block content %}
     <h2>Contactez Nous !</h2>
     <p>"Nous sommes là pour vous aider."</p>
-    <form action="" method="post"  novalidate>
+    <form action="" method="post" >
         {% csrf_token %}
         {{ form.as_p }}
         <input type='submit' value='Envoyez' >
     </form>
 {% endblock  %}
-    

@@ -55,7 +55,7 @@ def Create_new_listing(request):
         form = ListingForm(request.POST)
 
         # Si le formulaire est valid :
-        if form.is_valid:
+        if form.is_valid():
             # On enregistre les données dans notre base de donnée
             listing = form.save()
 

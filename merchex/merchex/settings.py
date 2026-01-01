@@ -10,9 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
 from pathlib import Path
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -39,7 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "listings"
+    "listings",
+    "crispy_forms",
+    "crispy_bootstrap5",
 ]
 
 
@@ -52,6 +54,9 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+CRISPY_TEMPLATE_PACK = "bootsrap5"
 
 ROOT_URLCONF = "merchex.urls"
 
@@ -124,3 +129,7 @@ STATIC_URL = "static/"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Crispy Forms
+CRISPY_ALLOWED_TEMPLATE_PACKS = ["bootstrap5"]
+CRISPY_TEMPLATE_PACK = "bootstrap5"

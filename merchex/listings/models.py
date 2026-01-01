@@ -31,8 +31,6 @@ class Listing(models.Model):
         Posters = "Po"
         Miscellaneous = "Mi"
 
-    type = models.fields.CharField(choices=Type.choices, max_length=5)
-
     title = models.fields.CharField(max_length=100)
     description = models.fields.CharField(max_length=1000)
     sold = models.fields.BooleanField(default=False)

@@ -1,11 +1,12 @@
 {% extends "listings/base.html" %}
+{% load crispy_forms_tags %}
 
 {% block content %}
     <h1>Creez une nouvelle annonce</h1>
 
-    <form method='post' action='' >
+    <form method='post' action='' class="card p-4 shadow">
         {% csrf_token %}
-        {{ form.as_p }}
-        <input type='submit' value='Envoyer'>
+        {{ form|crispy }}
+        <input type='submit' value='Envoyer' class="btn-primary mt-3">
     </form>
 {% endblock  %}

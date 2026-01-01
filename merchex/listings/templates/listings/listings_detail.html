@@ -11,7 +11,8 @@
 
     <p> {{listing.description}} </p>
 
-    <a href="{% url 'listing-list' %}">
-        Retour à tout les groupes
-    </a>
+    <a href="{% url 'listing-list' %}">Retour à toute les Annonces</a>
+    <a href="{% url 'listing-update' listing.id %}">Mettre à jour une annonce</a>
+    <a href="{% url 'listing-delete' listing.id %}">Supprimer  une annonce</a>
+
 {% endblock  %}

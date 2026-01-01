@@ -10,6 +10,7 @@
         <li>
             <a href="{% url 'listing-detail' listing.id  %}">{{ listing.title|upper }}</a>
             - <a href="{% url 'listing-update' listing.id  %}"> [modifier] </a>
+            - <a href="{% url 'listing-delete' listing.id  %}"> [Supprimer] </a>
 
         </li>
         {% endfor %}

@@ -34,6 +34,24 @@ def band_create(request):
     return render(request, "listings/band_create.html", {"form": form})
 
 
+def bands_update(request, id):
+    # On recupère l'objet correspondand à l'ID
+    band = Band.objects.get(id=id)
+
+    if request.method == "POST":
+        form = BandForm(request.POST, instance=band)
+        if form.is_valid():
+            # mettre à jour le groupe existant dans la base de données
+            band = form.save()
+            # redirection
+            return redirect("band-detail", band.id)
+    else:
+        # On creer  un formulaire dejà rempli avec l'objet recuperer
+        form = BandForm(instance=band)
+    # on retourne le rendu
+    return render(request, "listings/bands_update.html", {"form": form})
+
+
 def about(request):
     return render(request, "listings/about.html")
 
@@ -68,6 +86,24 @@ def Create_new_listing(request):
 
         # On retourne la page Create_new_listing
         return render(request, "listings/Create_new_listing.html", {"form": form})
+
+
+def listings_update(request, id):
+    # On recupère l'objet correspondand à l'ID
+    listing = Listing.objects.get(id=id)
+
+    if request.method == "POST":
+        form = ListingForm(request.POST, instance=listing)
+        if form.is_valid():
+            # mettre à jour le groupe existant dans la base de données
+            form.save()
+            # redirection
+            return redirect("listing-detail", listing.id)
+    else:
+        # On creer  un formulaire dejà rempli avec l'objet recuperer
+        form = ListingForm(instance=listing)
+    # on retourne le rendu
+    return render(request, "listings/listings_update.html", {"form": form})
 
 
 def contact(request):
